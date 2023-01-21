@@ -1,4 +1,3 @@
-import Constants from "expo-constants";
 import { Platform, StyleSheet } from "react-native";
 import { horizontalScale, verticalScale } from "./utils/Metrics";
 
@@ -6,33 +5,28 @@ export const styles = StyleSheet.create({
   container: {
     flex: 1,
     flexDirection: "column",
-    paddingTop: Constants.statusBarHeight,
-    justifyContent: "center",
-    backgroundColor: "purple",
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: "ghostwhite",
     padding: 8,
-  },
-  header: {
-    flex: 1,
-    flexDirection: "row",
-    justifyContent: "space-between",
-    padding: 20,
-    backgroundColor: "orange",
   },
   content: {
     flex: 6,
     ...Platform.select({
       ios: {
-        backgroundColor: "yellow"
+        backgroundColor: "yellow",
+        width: horizontalScale(100),
       },
       web: {
-        backgroundColor: "powderblue"
-      }
-    })
+        backgroundColor: "ghostwhite",
+        width: horizontalScale(30),
+      },
+    }),
   },
   contentElement: {
-    height: verticalScale(90),
-    width: horizontalScale(1500),
+    height: verticalScale(10),
+    alignSelf:'stretch',
     margin: 10,
-    backgroundColor: "red",
-  }
+    backgroundColor: "lightcoral",
+  },
 });

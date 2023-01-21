@@ -1,16 +1,16 @@
-import { ScrollView, Text, View } from "react-native";
+import { ScrollView, Text, View, SafeAreaView } from "react-native";
 import { styles } from "./AppStyles";
+import Header from "./pages/reservation/components/header/Header";
+import ReservationForm from "./pages/reservation/components/reservation/ReservationForm";
+import { enGB, registerTranslation } from "react-native-paper-dates";
+
+registerTranslation("en-GB", enGB);
 
 export function App() {
   return (
-    <View style={styles.container}>
-      <View style={styles.header}>
-        <Text>Overview</Text>
-        <Text>Menu</Text>
-        <Text>Reviews</Text>
-        <Text>Contact</Text>
-      </View>
+    <SafeAreaView style={styles.container}>
       <ScrollView stickyHeaderIndices={[0]}>
+        <Header />
         <ScrollView horizontal>
           <View style={styles.content}>
             {[...Array(20).keys()].map((x) => (
@@ -18,10 +18,10 @@ export function App() {
                 {x + 1}
               </Text>
             ))}
-            {/* <View style={styles.restaurant}></View> */}
+            <ReservationForm />
           </View>
         </ScrollView>
       </ScrollView>
-    </View>
+    </SafeAreaView>
   );
 }
