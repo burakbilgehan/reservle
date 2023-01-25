@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
-import { ScreenViews, ViewContext } from "../../../../context/contexts";
+import { ScreenViews, ViewContext } from "../../../../context/ViewContexts";
 import { HeaderData } from "../../../../types/BaseFormTypes";
 import { styles } from "./footerStyles";
 
@@ -30,9 +30,19 @@ const headerFields: HeaderData[] = [
 ];
 
 const Footer = () => {
-  const { setCurrentView } = useContext(ViewContext);
+  const { setCurrentView, currentView } = useContext(ViewContext);
   const onTouch = useCallback(() => {
-    setCurrentView(ScreenViews.ReservationView);
+    console.log({ currentView });
+    if (currentView === ScreenViews.MainView) {
+      console.log("trying to set view as reservation");
+      setCurrentView(ScreenViews.ReservationView);
+      return;
+    }
+    if (currentView === ScreenViews.ReservationView) {
+      console.log("trying to set view as main");
+      setCurrentView(ScreenViews.MainView);
+      return;
+    }
   }, []);
   const renderHeader = (input: ListRenderItemInfo<HeaderData>) => {
     const { item } = input;
