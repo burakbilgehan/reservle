@@ -1,11 +1,13 @@
 import { View, Text } from "react-native";
 import DatePicker from "./datePicker/DatePicker";
+import TimePicker from "./timePicker/TimePicker";
+import { styles } from "./reservationFormStyles";
 
 const ReservationForm = () => {
   return (
-    <View>
+    <View style={styles.body}>
       <DatePicker />
-      <Text>Time</Text>
+      <TimePicker />
       <Text>Number</Text>
       <Text>Confirm</Text>
     </View>

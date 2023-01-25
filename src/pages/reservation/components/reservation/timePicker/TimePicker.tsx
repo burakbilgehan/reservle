@@ -87,7 +87,7 @@ export const WebDatePicker = () => {
     //   </View>
     // </SafeAreaProvider>
 
-    <input type="date" id="start" name="trip-start"></input>
+    <input type="time" id="start" name="trip-start"></input>
   );
 };
 
@@ -143,7 +143,7 @@ export const CommunityDatePicker = () => {
   );
 };
 
-export default function DatePicker() {
+export default function TimePicker() {
   const datePicker = Platform.select({
     ios: CommunityDatePicker,
     android: NativeDatePicker,
