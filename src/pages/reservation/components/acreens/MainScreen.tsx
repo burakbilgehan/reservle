@@ -16,7 +16,7 @@ import { styles } from "./MainScreenStyles";
 export function MainScreen() {
   const { currentView } = useContext(ViewContext);
   const DATA = (function () {
-    return [...Array(50).keys()].map((x) => {
+    return [...Array(40).keys()].map((x) => {
       return { id: x, title: x + 1 };
     });
   })();
