@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   body: {
@@ -15,7 +15,12 @@ export const styles = StyleSheet.create({
   content: {
     flex: 10,
     flexDirection: "column",
-    height: 200,
+    justifyContent: "center",
+    ...Platform.select({
+      web: {
+        flex: 22,
+      },
+    }),
   },
   contentElement: {
     flex: 1,
@@ -27,6 +32,7 @@ export const styles = StyleSheet.create({
   },
   webFiller: {
     flex: 1,
+    justifyContent: "center",
   },
   flatList: {
     flex: 1,

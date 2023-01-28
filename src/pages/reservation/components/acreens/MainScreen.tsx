@@ -27,7 +27,6 @@ export function MainScreen() {
 
   const mainContent = (
     <View style={styles.content}>
-      <Text>{currentView}</Text>
       <FlatList
         data={DATA}
         renderItem={({ item }) => <Item title={item.title} />}

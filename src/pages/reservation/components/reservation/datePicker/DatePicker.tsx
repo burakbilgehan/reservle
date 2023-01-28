@@ -5,7 +5,13 @@ import { useState } from "react";
 import { Platform, SafeAreaView, Text, View } from "react-native";
 
 export const WebDatePicker = () => {
-  return <input type="date" id="start" name="trip-start"></input>;
+  const today = new Date().toISOString().split("T")[0];
+  return (
+    <div>
+      <div>Please select date:</div>
+      <input type="date" id="start" name="trip-start" min={today}></input>)
+    </div>
+  );
 };
 
 export const CommunityDatePicker = () => {
@@ -22,7 +28,7 @@ export const CommunityDatePicker = () => {
 
   return (
     <View>
-      <Text>selected: {date.toLocaleString()}</Text>
+      <Text>Please select date:</Text>
       <RNDateTimePicker
         testID="dateicker"
         value={date}
