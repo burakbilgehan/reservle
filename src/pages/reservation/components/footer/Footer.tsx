@@ -32,14 +32,11 @@ const headerFields: HeaderData[] = [
 const Footer = () => {
   const { setCurrentView, currentView } = useContext(ViewContext);
   const onTouch = useCallback(() => {
-    console.log({ currentView });
     if (currentView === ScreenViews.MainView) {
-      console.log("trying to set view as reservation");
       setCurrentView(ScreenViews.ReservationView);
       return;
     }
     if (currentView === ScreenViews.ReservationView) {
-      console.log("trying to set view as main");
       setCurrentView(ScreenViews.MainView);
       return;
     }
