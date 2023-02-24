@@ -8,6 +8,7 @@ import {
   View,
 } from "react-native";
 import { ScreenViews, ViewContext } from "../../../../context/ViewContexts";
+import { horizontalScale } from "../../../../utils/Metrics";
 import Footer from "../footer/Footer";
 import Header from "../header/Header";
 import ReservationForm from "../reservation/ReservationForm";
@@ -66,7 +67,13 @@ export function MainScreen() {
     return (
       <View style={styles.webWrapper}>
         <View style={styles.webFiller}></View>
-        <View style={styles.webFiller}>
+        <View
+          style={{
+            flex: 1,
+            maxWidth: horizontalScale(33),
+            minWidth: horizontalScale(33),
+          }}
+        >
           <Content>{mainContent}</Content>
         </View>
         <View style={styles.webFiller}>

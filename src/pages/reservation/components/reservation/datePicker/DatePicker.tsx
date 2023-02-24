@@ -3,13 +3,20 @@ import RNDateTimePicker, {
 } from "@react-native-community/datetimepicker";
 import { useState } from "react";
 import { Platform, SafeAreaView, Text, View } from "react-native";
+import { styles } from "./datePickerStyles";
 
 export const WebDatePicker = () => {
   const today = new Date().toISOString().split("T")[0];
   return (
-    <div>
+    <div style={styles.web}>
       <div>Please select date:</div>
-      <input type="date" id="start" name="trip-start" min={today}></input>)
+      <input
+        type="date"
+        id="start"
+        name="trip-start"
+        min={today}
+        style={{ flex: 1, width: "100%" }}
+      ></input>
     </div>
   );
 };
@@ -27,16 +34,18 @@ export const CommunityDatePicker = () => {
   };
 
   return (
-    <View>
+    <View style={styles.mobile}>
       <Text>Please select date:</Text>
-      <RNDateTimePicker
-        testID="dateicker"
-        value={date}
-        is24Hour
-        mode="date"
-        onChange={onChange}
-        minimumDate={new Date()}
-      />
+      <View>
+        <RNDateTimePicker
+          testID="dateicker"
+          value={date}
+          is24Hour
+          mode="date"
+          onChange={onChange}
+          minimumDate={new Date()}
+        />
+      </View>
     </View>
   );
 };

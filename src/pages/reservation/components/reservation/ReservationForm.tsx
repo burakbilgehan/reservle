@@ -11,10 +11,10 @@ const ReservationForm = () => {
         <DatePicker />
       </View>
       <View style={styles.timeAndSize}>
-        <View style={{justifyContent: "center"}}>
+        <View style={styles.size}>
           <PartySizePicker />
         </View>
-        <View style={{justifyContent: "center"}}>
+        <View style={styles.time}>
           <TimePicker />
         </View>
       </View>

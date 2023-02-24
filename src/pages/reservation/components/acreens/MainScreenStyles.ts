@@ -1,4 +1,5 @@
 import { Platform, StyleSheet } from "react-native";
+import { horizontalScale } from "../../../../utils/Metrics";
 
 export const styles = StyleSheet.create({
   body: {
@@ -32,7 +33,9 @@ export const styles = StyleSheet.create({
   },
   webFiller: {
     flex: 1,
+    maxWidth: horizontalScale(33),
     justifyContent: "center",
+    marginHorizontal: 100
   },
   flatList: {
     flex: 1,
