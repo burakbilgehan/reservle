@@ -27,13 +27,11 @@ export function MainScreen() {
   );
 
   const mainContent = (
-    <View style={styles.content}>
-      <FlatList
-        data={DATA}
-        renderItem={({ item }) => <Item title={item.title} />}
-        style={styles.flatList}
-      />
-    </View>
+    <FlatList
+      data={DATA}
+      renderItem={({ item }) => <Item title={item.title} />}
+      style={styles.flatList}
+    />
   );
 
   const MobileContent = () => {
@@ -55,7 +53,7 @@ export function MainScreen() {
         <View style={styles.header}>
           <Header />
         </View>
-        {children}
+        <View style={styles.content}>{children}</View>
         <View style={styles.footer}>
           <Footer />
         </View>
@@ -65,21 +63,23 @@ export function MainScreen() {
 
   const WebView = () => {
     return (
-      <View style={styles.webWrapper}>
-        <View style={styles.webFiller}></View>
-        <View
-          style={{
-            flex: 1,
-            maxWidth: horizontalScale(33),
-            minWidth: horizontalScale(33),
-          }}
-        >
-          <Content>{mainContent}</Content>
+      <Content>
+        <View style={styles.webWrapper}>
+          <View style={styles.webFiller}></View>
+          <View
+            style={{
+              flex: 1,
+              maxWidth: horizontalScale(33),
+              minWidth: horizontalScale(33),
+            }}
+          >
+            {mainContent}
+          </View>
+          <View style={styles.webFiller}>
+            <ReservationForm />
+          </View>
         </View>
-        <View style={styles.webFiller}>
-          <ReservationForm />
-        </View>
-      </View>
+      </Content>
     );
   };
 

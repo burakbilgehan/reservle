@@ -4,8 +4,8 @@ export const styles = StyleSheet.create({
   web: {
     display: "flex",
     flexDirection: "column",
-    flex: 1,
     alignItems: "stretch",
+    flex: 1,
   },
   mobile: {
     display: "flex",

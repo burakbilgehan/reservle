@@ -1,11 +1,13 @@
 import { Picker } from "@react-native-picker/picker";
-import { useCallback, useState } from "react";
+import { useCallback, useContext, useState } from "react";
 import { Platform, Text, View } from "react-native";
+import { ReservationInfoContext } from "../../../../../context/ReservationInfoContext";
 
 const PartySizePicker = () => {
-  const [partySize, setPartySize] = useState<number | undefined>();
+  const { selectedPartySize: partySize, setSelectedPartySize: setPartySize } =
+    useContext(ReservationInfoContext);
 
-  const onChange = (value: number) => {
+  const onChange = (value: Number) => {
     setPartySize(value);
     setVisible(false);
   };
@@ -27,13 +29,15 @@ const PartySizePicker = () => {
 
   return (
     <View>
-      <Text onPress={onToggleDropdown}>Select Party Size ({partySize}):</Text>
-      {isVisible && (
-        <Picker selectedValue={partySize} onValueChange={onChange}>
+      <Text onPress={onToggleDropdown}>Select Party Size</Text>
+      {isVisible ? (
+        <Picker<Number> selectedValue={partySize} onValueChange={onChange}>
           {partySizeOptions.map((option) => (
             <Picker.Item label={`${option}`} value={option} key={option} />
           ))}
         </Picker>
+      ) : (
+        <Text>{partySize.toString()}</Text>
       )}
     </View>
   );

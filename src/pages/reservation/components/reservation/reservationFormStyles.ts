@@ -5,7 +5,7 @@ export const styles = StyleSheet.create({
   body: {
     display: "flex",
     flexDirection: "column",
-    flex: 1/2,
+    flex: 1 / 2,
     justifyContent: "center",
     alignItems: "stretch",
     alignContent: "center",
@@ -14,13 +14,13 @@ export const styles = StyleSheet.create({
     borderWidth: 8,
     borderStyle: "solid",
     borderRadius: 50,
-    backgroundColor: "sandybrown"
+    backgroundColor: "sandybrown",
   },
   date: {
     display: "flex",
     flex: 1 / 6,
     justifyContent: "center",
-    alignItems: "stretch",
+    paddingRight: 10,
   },
   timeAndSize: {
     display: "flex",
@@ -37,11 +37,11 @@ export const styles = StyleSheet.create({
   time: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
+    paddingRight: 10,
   },
   size: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
+    paddingRight: 10,
   },
 });

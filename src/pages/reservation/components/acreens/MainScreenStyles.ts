@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     ...Platform.select({
       web: {
-        flex: 22,
+        flex: 12,
       },
     }),
   },
