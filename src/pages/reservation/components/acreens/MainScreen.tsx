@@ -1,20 +1,23 @@
 import { useContext } from "react";
 import {
+  Dimensions,
   FlatList,
   Platform,
   SafeAreaView,
   StatusBar,
   Text,
+  useWindowDimensions,
   View,
 } from "react-native";
 import { ScreenViews, ViewContext } from "../../../../context/ViewContexts";
-import { horizontalScale } from "../../../../utils/Metrics";
 import Footer from "../footer/Footer";
 import Header from "../header/Header";
 import ReservationForm from "../reservation/ReservationForm";
-import { styles } from "./MainScreenStyles";
+import { styles as defaultStyle } from "./MainScreenStyles";
 
 export function MainScreen() {
+  const { width } = useWindowDimensions();
+  const styles = defaultStyle(width);
   const { currentView } = useContext(ViewContext);
   const DATA = (function () {
     return [...Array(40).keys()].map((x) => {
@@ -37,11 +40,7 @@ export function MainScreen() {
   const MobileContent = () => {
     switch (currentView) {
       case ScreenViews.ReservationView:
-        return (
-          <View style={styles.content}>
-            <ReservationForm />
-          </View>
-        );
+        return <ReservationForm />;
       default:
         return mainContent;
     }
@@ -66,15 +65,7 @@ export function MainScreen() {
       <Content>
         <View style={styles.webWrapper}>
           <View style={styles.webFiller}></View>
-          <View
-            style={{
-              flex: 1,
-              maxWidth: horizontalScale(33),
-              minWidth: horizontalScale(33),
-            }}
-          >
-            {mainContent}
-          </View>
+          <View style={styles.webFiller}>{mainContent}</View>
           <View style={styles.webFiller}>
             <ReservationForm />
           </View>
@@ -99,12 +90,12 @@ export function MainScreen() {
         return <MobileView />;
       case "web":
       default:
-        return <WebView />;
+        return width > 1024 ? <WebView /> : <MobileView />;
     }
   };
 
   return (
-    <SafeAreaView style={styles.body}>
+    <SafeAreaView style={defaultStyle(width).body}>
       {Platform.OS === "ios" && <StatusBar barStyle="dark-content" />}
       <FinalView os={Platform.OS} />
     </SafeAreaView>

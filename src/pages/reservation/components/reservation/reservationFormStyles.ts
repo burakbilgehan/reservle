@@ -15,6 +15,9 @@ export const styles = StyleSheet.create({
     borderStyle: "solid",
     borderRadius: 50,
     backgroundColor: "sandybrown",
+    maxWidth: 320,
+    minWidth: 320,
+    alignSelf: "center",
   },
   date: {
     display: "flex",

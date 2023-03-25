@@ -11,14 +11,14 @@ export type ViewContextType = {
 };
 
 export const initialViewContext: ViewContextType = {
-  currentView: ScreenViews.ReservationView,
+  currentView: ScreenViews.MainView,
   setCurrentView: () => {},
 };
 
 export const ViewContext = createContext<ViewContextType>(initialViewContext);
 
 const ViewProvider: any = ({ children }: any) => {
-  const [stateView, setStateView] = useState(ScreenViews.ReservationView);
+  const [stateView, setStateView] = useState(ScreenViews.MainView);
   return (
     <ViewContext.Provider
       value={{ currentView: stateView, setCurrentView: setStateView }}
