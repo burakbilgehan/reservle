@@ -33,12 +33,13 @@ export const styles = (windowWidth: number) =>
       flexDirection: "row",
     },
     webFiller: {
-      flex: 1,
+      flex: 2,
       justifyContent: "center",
       paddingHorizontal: horizontalScale(1, windowWidth),
     },
-    flatList: {
+    webFillerReservation: {
       flex: 1,
-      flexDirection: "column",
+      justifyContent: "center",
+      paddingHorizontal: horizontalScale(1, windowWidth),
     },
   });
