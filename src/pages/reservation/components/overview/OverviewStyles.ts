@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { Platform, StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   overview: {
@@ -17,8 +17,14 @@ export const styles = StyleSheet.create({
   },
   content: {
     flex: 11,
-    backgroundColor: "orange",
-    flexDirection: "row",
+    ...Platform.select({
+      web: {
+        flexDirection: "row",
+      },
+      ios: {
+        flexDirection: "column",
+      },
+    }),
     marginHorizontal: 10,
     marginVertical: 20,
   },

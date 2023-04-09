@@ -1,6 +1,8 @@
 import { Text, View } from "react-native";
 import Indicators from "./indicators/Indicators";
 import { styles } from "./OverviewStyles";
+import Photos from "./photos/Photos";
+import Details from "./details/Details";
 
 const Overview = () => {
   return (
@@ -10,10 +12,10 @@ const Overview = () => {
       </View>
       <View style={styles.content}>
         <View style={styles.details}>
-          <Text>Details</Text>
+          <Details />
         </View>
         <View style={styles.photos}>
-          <Text>Photos</Text>
+          <Photos />
         </View>
       </View>
     </View>
