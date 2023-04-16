@@ -11,7 +11,7 @@ export const styles = StyleSheet.create({
     padding: 8,
     //
 
-    backgroundColor: "orange",
+    backgroundColor: "seashell",
     // border
     borderColor: "salmon",
     borderWidth: 4,

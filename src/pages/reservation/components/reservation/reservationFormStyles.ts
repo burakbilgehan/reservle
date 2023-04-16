@@ -13,7 +13,7 @@ export const styles = StyleSheet.create({
     borderWidth: 8,
     borderStyle: "solid",
     borderRadius: 50,
-    backgroundColor: "sandybrown",
+    backgroundColor: "seashell",
     maxWidth: 320,
     minWidth: 320,
     alignSelf: "center",
@@ -34,7 +34,7 @@ export const styles = StyleSheet.create({
   button: {
     display: "flex",
     flex: 1 / 6,
-    justifyContent: "center",
+    // justifyContent: "center",
   },
   time: {
     flex: 1,

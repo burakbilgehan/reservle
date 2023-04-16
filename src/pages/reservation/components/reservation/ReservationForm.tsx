@@ -5,6 +5,7 @@ import { styles } from "./reservationFormStyles";
 import PartySizePicker from "./partySizePicker/PartySizePicker";
 import { useContext } from "react";
 import { ReservationInfoContext } from "../../../../context/ReservationInfoContext";
+import SubmitButton from "../../../../components/buttons/submitButton/SubmitButton";
 
 const ReservationForm = () => {
   const { selectedDate, selectedTimeslot, selectedPartySize } = useContext(
@@ -29,7 +30,7 @@ const ReservationForm = () => {
         </View>
       </View>
       <View style={styles.button}>
-        <Button title="Reserve" onPress={onPress} />
+        <SubmitButton title="Reserve" onPress={onPress} />
       </View>
     </View>
   );

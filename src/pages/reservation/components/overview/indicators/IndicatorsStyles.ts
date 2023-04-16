@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
     }),
     //
 
-    backgroundColor: "orange",
+    backgroundColor: "seashell",
     // border
     borderColor: "salmon",
     borderWidth: 4,
